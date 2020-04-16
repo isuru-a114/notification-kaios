@@ -7,19 +7,22 @@
       "url": "http://example.com"
     },
      "cursor": true,
-    "launch_path": "/notification-kaios/index.html",
+    "launch_path": "/index.html",
       "icons": {
-      "56": "/notification-kaios/icons/sicons8-calculator-56.png",
-      "112": "/notification-kaios/icons/icons8-calculator-112.png "
+      "56": "icons/sicons8-calculator-56.png",
+      "112": "/icons/icons8-calculator-112.png "
     },
     "theme_color": "#a065e6",
-    "type": "web",
+    "type": "privileged",
     "messages": [
         { "push": "/index.html"},
         { "push-register": "/index.html"}
       ],
 
     "permissions": {
+    "serviceworker": {
+      "description": "Needed for assocating service worker"
+    },
     "desktop-notification": {
       "description": "To show notifications"
     },

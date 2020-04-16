@@ -2,6 +2,18 @@
 //   console.log("Hello World!");
 // });
 
+if ('serviceWorker' in navigator) {
+  // Register a service worker hosted at the root of the
+  // site using the default scope.
+  navigator.serviceWorker.register('/sw.js').then(function (registration) {
+    console.log('Service worker registration succeeded:', registration);
+  }, /*catch*/ function (error) {
+    console.log('Service worker registration failed:', error);
+  });
+} else {
+  console.log('Service workers are not supported.');
+}
+
 var registerBtn = document.querySelector('#set-nick');
 
 
@@ -14,7 +26,12 @@ function notifyMe() {
   // Let's check whether notification permissions have alredy been granted
   else if (Notification.permission === "granted") {
     // If it's okay let's create a notification
-    var notification = new Notification('Hello world!');
+    navigator.serviceWorker.getRegistration().then(
+      function (reg) {
+        console.log(reg)
+      }
+    )
+    // var notification = new Notification('Hello world!');
   }
 
   // Otherwise, we need to ask the user for permission
@@ -35,17 +52,7 @@ function notifyMe() {
   // want to be respectful there is no need to bother them any more.
 }
 
-if ('serviceWorker' in navigator) {
-  // Register a service worker hosted at the root of the
-  // site using the default scope.
-  navigator.serviceWorker.register('/sw.js').then(function (registration) {
-    console.log('Service worker registration succeeded:', registration);
-  }, /*catch*/ function (error) {
-    console.log('Service worker registration failed:', error);
-  });
-} else {
-  console.log('Service workers are not supported.');
-}
+
 
 notifyMe()
 
