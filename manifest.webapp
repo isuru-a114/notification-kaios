@@ -1,0 +1,55 @@
+{
+    "name": "Calculator",
+    "description": "Demonstrates a basic KaiOS app",
+    "version": "0.0.1",
+    "developer": {
+      "name": "Your name",
+      "url": "http://example.com"
+    },
+     "cursor": true,
+    "launch_path": "/index.html",
+      "icons": {
+      "56": "icons/sicons8-calculator-56.png",
+      "112": "/icons/icons8-calculator-112.png "
+    },
+    "theme_color": "#a065e6",
+    "type": "privileged",
+    "messages": [
+        { "push": "/index.html"},
+        { "push-register": "/index.html"}
+      ],
+
+    "permissions": {
+    "desktop-notification": {
+      "description": "To show notifications"
+    },
+     "notifications": {
+       
+     },
+    "push": {
+      "description": "Required for being updated with new goals in soccer matches"
+    },
+    "geolocation": {
+      "description": "Marking out user location"
+    },
+    "alarms": {
+      "description": "Scheduling alarms"
+    }
+  },
+    "chrome": {
+      "statusbar": "overlap"
+    },
+    "orientation": "default",
+    "locales": {
+      "en-US": {
+        "name": "Calculator",
+        "description": "Template App for KaiOS"
+      },
+      "zh-CN": {
+        "name": "模板",
+        "description": "KaiOS模板应用"
+      }
+    },
+    "default_locale": "en-US"
+  }
+  
