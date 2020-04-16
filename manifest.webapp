@@ -7,7 +7,7 @@
       "url": "http://example.com"
     },
      "cursor": true,
-    "launch_path": "/index.html",
+    "launch_path": "/notification-kaios/index.html",
       "icons": {
       "56": "icons/sicons8-calculator-56.png",
       "112": "/icons/icons8-calculator-112.png "
