@@ -13,7 +13,7 @@
       "112": "/notification-kaios/icons/icons8-calculator-112.png "
     },
     "theme_color": "#a065e6",
-    "type": "privileged",
+    "type": "web",
     "messages": [
         { "push": "/index.html"},
         { "push-register": "/index.html"}
