@@ -1,7 +1,4 @@
-// window.addEventListener("load", function () {
-//   console.log("Hello World!");
-// });
-
+//service worker regitration
 if ('serviceWorker' in navigator) {
   // Register a service worker hosted at the root of the
   // site using the default scope.
@@ -17,6 +14,7 @@ if ('serviceWorker' in navigator) {
 var registerBtn = document.querySelector('#set-nick');
 
 
+
 function notifyMe() {
   // Let's check if the browser supports notifications
   if (!("Notification" in window)) {
@@ -27,8 +25,13 @@ function notifyMe() {
   else if (Notification.permission === "granted") {
     // If it's okay let's create a notification
     navigator.serviceWorker.getRegistration().then(
-      function (reg) {
-        console.log(reg)
+      reg => {
+        reg.pushManager.subscribe({
+          userVisibleOnly: true
+        }).then(sub => {
+          //end point
+          console.log(sub);
+        })
       }
     )
     // var notification = new Notification('Hello world!');
@@ -47,7 +50,6 @@ function notifyMe() {
       }
     });
   }
-
   // At last, if the user has denied notifications, and you 
   // want to be respectful there is no need to bother them any more.
 }
@@ -55,26 +57,4 @@ function notifyMe() {
 
 
 notifyMe()
-
-
-
-// self.registration.showNotification("New mail from Alice", {
-//   actions: [{action: 'archive', title: "Archive"}]
-// });
-
-
-// if (!('serviceWorker' in navigator)) {
-//   alert('Service Worker API isn’t supported.');
-// } else if (!('PushManager' in window)) {
-//   alert('Push API isn’t supported.');
-// } else if (!('Notification' in window)) {
-//   alert('Notifications API isn’t supported.');
-// } else if (!('showNotification' in ServiceWorkerRegistration.prototype)) {
-//   alert('Notifications aren’t supported.');
-
-// // Check permission
-// } else if (Notification.permission == 'denied') {
-//   alert('Notifications are disabled.');
-// }
-
 
