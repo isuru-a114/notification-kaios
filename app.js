@@ -29,7 +29,7 @@ function notifyMe() {
         reg.pushManager.subscribe({
           userVisibleOnly: true
         }).then(sub => {
-          //end point
+          //end poin
           console.log(sub);
         })
       }
