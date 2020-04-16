@@ -27,8 +27,13 @@ function notifyMe() {
   else if (Notification.permission === "granted") {
     // If it's okay let's create a notification
     navigator.serviceWorker.getRegistration().then(
-      function (reg) {
-        console.log(reg)
+       reg => {
+        reg.pushManager.subscribe({
+          userVisibleOnly: true
+        }).then(sub => {
+          //end point
+          console.log(sub);
+        })
       }
     )
     // var notification = new Notification('Hello world!');
